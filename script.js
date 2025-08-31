@@ -1,3 +1,5 @@
+const whoStarts = "o";
+
 let gameover = false;
 let gamesCompleted = 0;
 let X;
@@ -32,7 +34,14 @@ let H = O.cloneNode(true);
 H.symbol = "o";
 let I = X.cloneNode(true);
 I.symbol = "x";
-let symbols = [A, B, C, D, E, F, G, H, I];
+let J = O.cloneNode(true);
+J.symbol = "o";
+let symbols = [];
+if(whoStarts === "x"){
+    symbols = [A, B, C, D, E, F, G, H, I];
+}else if(whoStarts === "o"){
+    symbols = [B, C, D, E, F, G, H, I, J];
+}
 let index = 0;
 
 function RESET_IMAGES(){
