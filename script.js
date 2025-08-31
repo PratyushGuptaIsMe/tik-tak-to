@@ -1,3 +1,4 @@
+let gameover = false;
 let X;
 let O;
 RESET_IMAGES();
@@ -41,6 +42,9 @@ function RESET_IMAGES(){
 }
 
 function clickBox(e){
+    if(gameover === true){
+        return;
+    }
     e.appendChild(symbols[index]);
     index++;
     e.defVeryUniqueBooleanVariableThatHasNeverBeenUsedBefore = false;
@@ -48,67 +52,120 @@ function clickBox(e){
 }
 
 function checkWinOrLose(){
+    if(b1.children.length === 1){
+        b1.hasATTTBox = true;
+    }
+    if(b2.children.length === 1){
+        b2.hasATTTBox = true;
+    }
+    if(b3.children.length === 1){
+        b3.hasATTTBox = true;
+    }
+    if(b4.children.length === 1){
+        b4.hasATTTBox = true;
+    }
+    if(b5.children.length === 1){
+        b5.hasATTTBox = true;
+    }
+    if(b6.children.length === 1){
+        b6.hasATTTBox = true;
+    }
+    if(b7.children.length === 1){
+        b7.hasATTTBox = true;
+    }
+    if(b8.children.length === 1){
+        b8.hasATTTBox = true;
+    }
+    if(b9.children.length === 1){
+        b9.hasATTTBox = true;
+    }
+
     try{
-        if( b1.children[0].symbol === b2.children[0].symbol &&
+        if( b1.hasATTTBox &&
+            b2.hasATTTBox &&
+            b3.hasATTTBox &&
+            b1.children[0].symbol === b2.children[0].symbol &&
             b2.children[0].symbol === b3.children[0].symbol &&
             b3.children[0].symbol === b1.children[0].symbol
         ){
             PlayerWon(b1.children[0].symbol);
         }
-        if( b4.children[0].symbol === b5.children[0].symbol &&
+        if( b4.hasATTTBox &&
+            b5.hasATTTBox &&
+            b6.hasATTTBox &&
+            b4.children[0].symbol === b5.children[0].symbol &&
             b5.children[0].symbol === b6.children[0].symbol &&
             b6.children[0].symbol === b4.children[0].symbol
         ){
             PlayerWon(b4.children[0].symbol);
         }
-        if( b7.children[0].symbol === b8.children[0].symbol &&
+        if( b7.hasATTTBox &&
+            b8.hasATTTBox &&
+            b9.hasATTTBox &&
+            b7.children[0].symbol === b8.children[0].symbol &&
             b8.children[0].symbol === b9.children[0].symbol &&
             b9.children[0].symbol === b7.children[0].symbol
         ){
             PlayerWon(b7.children[0].symbol);
         }
-        if( b1.children[0].symbol === b4.children[0].symbol &&
+        if( b1.hasATTTBox &&
+            b4.hasATTTBox &&
+            b7.hasATTTBox &&
+            b1.children[0].symbol === b4.children[0].symbol &&
             b4.children[0].symbol === b7.children[0].symbol &&
             b7.children[0].symbol === b1.children[0].symbol
         ){
             PlayerWon(b7.children[0].symbol);
         }
-        if( b2.children[0].symbol === b5.children[0].symbol &&
+        if( b2.hasATTTBox &&
+            b5.hasATTTBox &&
+            b8.hasATTTBox &&
+            b2.children[0].symbol === b5.children[0].symbol &&
             b5.children[0].symbol === b8.children[0].symbol &&
             b8.children[0].symbol === b2.children[0].symbol
         ){
             PlayerWon(b2.children[0].symbol);
         }
-        if( b3.children[0].symbol === b6.children[0].symbol &&
+        if( b3.hasATTTBox &&
+            b6.hasATTTBox &&
+            b9.hasATTTBox &&
+            b3.children[0].symbol === b6.children[0].symbol &&
             b6.children[0].symbol === b9.children[0].symbol &&
             b9.children[0].symbol === b3.children[0].symbol
         ){
-            PlayerWon(b6.children[0].symbol);
+            PlayerWon(b3.children[0].symbol);
         }
-        if( b1.children[0].symbol === b5.children[0].symbol &&
+        if( b1.hasATTTBox &&
+            b5.hasATTTBox &&
+            b9.hasATTTBox &&
+            b1.children[0].symbol === b5.children[0].symbol &&
             b5.children[0].symbol === b9.children[0].symbol &&
             b9.children[0].symbol === b1.children[0].symbol
         ){
             PlayerWon(b9.children[0].symbol);
         }
-        if( b7.children[0].symbol === b3.children[0].symbol &&
+        if( b3.hasATTTBox &&
+            b5.hasATTTBox &&
+            b7.hasATTTBox &&
+            b3.children[0].symbol === b5.children[0].symbol &&
             b5.children[0].symbol === b7.children[0].symbol &&
-            b3.children[0].symbol === b5.children[0].symbol
+            b7.children[0].symbol === b3.children[0].symbol
         ){
             PlayerWon(b7.children[0].symbol);
         }
     }
     catch(e){
-
+        console.error(e);
     }
 }
 
 function PlayerWon(whoWon){
     if(whoWon === "x"){
-        console.log("X wins");
+        alert("X");
     }else if(whoWon === "o"){
-        console.log("O wins");
+        alert("O");
     }
+    gameover = true;
 }
 
 boxes.forEach((e) => {
