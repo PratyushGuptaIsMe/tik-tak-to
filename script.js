@@ -49,6 +49,7 @@ function clickBox(e){
     e.appendChild(symbols[index]);
     index++;
     e.defVeryUniqueBooleanVariableThatHasNeverBeenUsedBefore = false;
+    e.style.cursor = "default";
     checkWinOrLose();
 }
 
@@ -154,9 +155,22 @@ function checkWinOrLose(){
         ){
             PlayerWon(b7.children[0].symbol);
         }
+        if( b1.hasATTTBox &&
+            b2.hasATTTBox &&
+            b3.hasATTTBox &&
+            b4.hasATTTBox &&
+            b5.hasATTTBox &&
+            b6.hasATTTBox &&
+            b7.hasATTTBox &&
+            b8.hasATTTBox &&
+            b9.hasATTTBox &&
+            gameover === false
+        ){
+            Draw();
+        }
     }
     catch(e){
-        console.error(e);
+        console.log(e);
     }
 }
 
@@ -167,6 +181,10 @@ function PlayerWon(whoWon){
         alert("O");
     }
     gameover = true;
+}
+
+function Draw(){
+    alert("Draw!");
 }
 
 boxes.forEach((e) => {
@@ -200,4 +218,5 @@ document.getElementById("resetBtn").addEventListener("click", () => {
     index = 0;
     gameover = false;
     gamesCompleted++;
+    console.log("Games completed -> " + gamesCompleted);
 })
