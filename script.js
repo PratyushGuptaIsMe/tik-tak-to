@@ -1,4 +1,5 @@
 let gameover = false;
+let gamesCompleted = 0;
 let X;
 let O;
 RESET_IMAGES();
@@ -175,4 +176,28 @@ boxes.forEach((e) => {
             clickBox(e);
         }
     });
+})
+
+document.getElementById("resetBtn").addEventListener("click", () => {
+    symbols[0].remove();
+    symbols[1].remove();
+    symbols[2].remove();
+    symbols[3].remove();
+    symbols[4].remove();
+    symbols[5].remove();
+    symbols[6].remove();
+    symbols[7].remove();
+    symbols[8].remove();
+    b1.defVeryUniqueBooleanVariableThatHasNeverBeenUsedBefore = true;
+    b2.defVeryUniqueBooleanVariableThatHasNeverBeenUsedBefore = true;
+    b3.defVeryUniqueBooleanVariableThatHasNeverBeenUsedBefore = true;
+    b4.defVeryUniqueBooleanVariableThatHasNeverBeenUsedBefore = true;
+    b5.defVeryUniqueBooleanVariableThatHasNeverBeenUsedBefore = true;
+    b6.defVeryUniqueBooleanVariableThatHasNeverBeenUsedBefore = true;
+    b7.defVeryUniqueBooleanVariableThatHasNeverBeenUsedBefore = true;
+    b8.defVeryUniqueBooleanVariableThatHasNeverBeenUsedBefore = true;
+    b9.defVeryUniqueBooleanVariableThatHasNeverBeenUsedBefore = true;
+    index = 0;
+    gameover = false;
+    gamesCompleted++;
 })
